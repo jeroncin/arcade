@@ -9,7 +9,7 @@ var juego =
 	iniciar: function (x) 
 	{
 		this.instalarPiezas( x );
-		this.mezclarFichas(10);
+		this.mezclarFichas(200);
 		this.capturarTeclas();
 	},
 	crearPieza: function (idImagen, fi, co) 
