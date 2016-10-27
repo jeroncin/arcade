@@ -9,7 +9,7 @@ var juego =
 	iniciar: function (x) 
 	{
 		this.instalarPiezas( x );
-		this.mezclarFichas(200);
+		this.mezclarFichas(10);
 		this.capturarTeclas();
 	},
 	crearPieza: function (idImagen, fi, co) 
@@ -76,26 +76,23 @@ var juego =
 			{
 				case 37:
 					that.moverHaciaLaIzquierda();
-					that.chequearVictoria();
 				break;
 
 				case 38:
 					that.moverHaciaArriba();
-					that.chequearVictoria();
 				break;
 
 				case 39:
 					that.moverHaciaLaDerecha();
-					that.chequearVictoria();
 				break;
 
 				case 40:
 					that.moverHaciaAbajo();
-					that.chequearVictoria();
 				break;
 
 				default: return;
 			}
+			that.chequearVictoria();
 			evento.preventDefault();
 		});
 	},
@@ -156,13 +153,12 @@ var juego =
 					if (co !== pieza.columnaInicial
 						|| fi !== pieza.filaInicial) 
 					{
-						return false;
+						return;
 					}
 				}
 			}
 		}
 		setTimeout(function(){alert("Ganaste!");}, 500);
-		return true;
 	}
 };
 $(document).ready(function () {
